@@ -4,7 +4,7 @@ import {BuildFilled, CaretDownOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
 import Selection from './Selection';
 
-const {Search} = Input;
+const { Search } = Input;
 const { Option } = Select;
 
 export default class Searchbar extends Component {
@@ -67,8 +67,8 @@ export default class Searchbar extends Component {
         view: 4.2
       }
     ],
-    rename:"name"
-    
+    rename:"name",
+    retype:"0"
     
   };
   result = value => {
@@ -78,14 +78,13 @@ export default class Searchbar extends Component {
       this.setState({ rename: "name" });
     }
   };
-  handleChange = (value) => {
-    
-    console.log(`selected ${value}`);
+  onChange = (value) => {
+    this.setState({ retype: value });
   };
 
   render() {
       const { selectionlist } = this.state;
-      const {rename} = this.state;
+      const {rename,retype} = this.state;
       let cnt=0;
       const menu = (
         <Menu>
@@ -125,36 +124,45 @@ export default class Searchbar extends Component {
                 />
               </Col>
 
-              {/* <Col span={3} offset={1}>
-                <Dropdown overlay={menu} placement="bottomCenter" trigger={['click']}>
-                    <Button onClick={this.handleClick.name}><BuildFilled />所有類別<CaretDownOutlined /></Button>
-                </Dropdown>
-              </Col> */}
-
               <Col span={3} offset={1}>
-
-                <Select defaultValue="1" style={{ width: 150 }} onChange={this.handleChange}>
+                <Select defaultValue="0" style={{ width: 150 }} onChange={this.onChange}>
+                  <Option value="0">所有類別</Option>
                   <Option value="1">工藝品</Option>
                   <Option value="2">雕塑</Option>
                   <Option value="3">陶瓷</Option>
                 </Select>
-                
-
               </Col>
              
-              
               <Col span={2}>
                 排序
-                <Dropdown overlay={sort} placement="bottomCenter" trigger={['click']}>
-                    <Button>預設<CaretDownOutlined /></Button>
-                </Dropdown>
+                <Select defaultValue="0" style={{ width: 100 }}>
+                  <Option value="0">預設</Option>
+                  <Option value="1">按讚數</Option>
+                  <Option value="2">發布時間</Option>
+                  <Option value="3">瀏覽率</Option>
+                </Select>
               </Col>
             </Row>
             <br/>
             <div>
               <Row gutter={[24,24]} style={{margin:"auto"}}>
                 {selectionlist.map((item, index, array) => {
-                  if(rename!=="name"){
+                  if(rename!=="name" && retype!=="0"){
+                    if(item.name===rename && item.type===retype){
+                      return (
+                        <Col span={6}>
+                          <Selection selsrc={item.src} selname={item.name} sellike={item.like} selview={item.view} />
+                        </Col>
+                      );
+                    }else{
+                      if((cnt+1)===array.length){
+                        return(
+                          <h1 style={{fontSize:"54px"}}>Sorry<br/>Not Found</h1>
+                        );
+                      }
+                      cnt=cnt+1;
+                    }
+                  }else if(rename!=="name"){
                     if(item.name===rename){
                       return (
                         <Col span={6}>
@@ -169,12 +177,20 @@ export default class Searchbar extends Component {
                       }
                       cnt=cnt+1;
                     }
+                  }else if(retype!=="0"){
+                    if(item.type===retype){
+                      return (
+                        <Col span={6}>
+                          <Selection selsrc={item.src} selname={item.name} sellike={item.like} selview={item.view} />
+                        </Col>
+                      )
+                    }
                   }else{
                     return (
                       <Col span={6}>
                         <Selection selsrc={item.src} selname={item.name} sellike={item.like} selview={item.view} />
                       </Col>
-                    );
+                    )
                   }
                 })}
               </Row>
