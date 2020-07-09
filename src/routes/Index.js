@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
 import { Layout,Divider,Row,Col } from "antd";
 import "antd/dist/antd.css";
-import Navbar from './component/Navbar';
-import Searchbar from './component/Searchbar';
-import CarouselWrap from './component/CarouselWrap';
-import Test from './component/Test';
+import Navbar from '../component/Navbar';
+import Searchbar from '../component/Searchbar';
+// import CarouselWrap from '../component/CarouselWrap';
+// import Test from '../component/Test';
 
 const { Header, Content } = Layout;
 
-export default class App extends Component {
-  
+export default class Recover extends Component {
   render() {
     return (
       <Layout className="layout" >
@@ -27,10 +25,6 @@ export default class App extends Component {
           
         </Content>
       </Layout>
-
-
-      
-
     );
   }
 

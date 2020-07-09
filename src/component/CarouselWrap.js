@@ -1,8 +1,6 @@
 import React, { Component,useState } from 'react';
 import {CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons';
-
 import ItemsCarousel from 'react-items-carousel';
-
 import { Row,Col,Card,Menu } from "antd";
 import "antd/dist/antd.css";
 
