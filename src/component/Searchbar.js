@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Row,Col,Input,Menu,Dropdown, Button,Select } from "antd";
-import {BuildFilled, CaretDownOutlined } from '@ant-design/icons';
+import { Row,Col,Input,Select } from "antd";
 import "antd/dist/antd.css";
 import Selection from './Selection';
 
@@ -78,7 +77,7 @@ export default class Searchbar extends Component {
       this.setState({ rename: "name" });
     }
   };
-  onChange = (value) => {
+  typeOnChange = (value) => {
     this.setState({ retype: value });
   };
 
@@ -86,32 +85,6 @@ export default class Searchbar extends Component {
       const { selectionlist } = this.state;
       const {rename,retype} = this.state;
       let cnt=0;
-      const menu = (
-        <Menu>
-          <Menu.Item key="1">
-            工藝品
-          </Menu.Item>
-          <Menu.Item key="2">
-            雕塑
-          </Menu.Item>
-          <Menu.Item key="3">
-            陶瓷
-          </Menu.Item>
-        </Menu>
-      );
-      const sort = (
-        <Menu>
-          <Menu.Item>
-            按讚數
-          </Menu.Item>
-          <Menu.Item>
-            發布時間
-          </Menu.Item>
-          <Menu.Item>
-            瀏覽率
-          </Menu.Item>
-        </Menu>
-    );
 
       return (
           <div className="Searchbar">
@@ -125,7 +98,7 @@ export default class Searchbar extends Component {
               </Col>
 
               <Col span={3} offset={1}>
-                <Select defaultValue="0" style={{ width: 150 }} onChange={this.onChange}>
+                <Select defaultValue="0" style={{ width: 150 }} onChange={this.typeOnChange}>
                   <Option value="0">所有類別</Option>
                   <Option value="1">工藝品</Option>
                   <Option value="2">雕塑</Option>
@@ -195,8 +168,7 @@ export default class Searchbar extends Component {
                 })}
               </Row>
             </div>
-          </div >
-
+          </div>
 
       );
   }

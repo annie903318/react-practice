@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
 import { Layout,Divider } from "antd";
 import "antd/dist/antd.css";
-import Navbar from '../component/Navbar';
-import Searchbar from '../component/Searchbar';
+import Test from '../component/Test';
 
 const { Header, Content } = Layout;
 
-export default class Index extends Component {
+export default class Carousel extends Component {
   render() {
     return (
       <Layout className="layout" >
         <Header style={{backgroundColor:"white"}}>
-          <Navbar/>
+          <Test/>
         </Header>
         
         <Content style={{ padding: '0 50px',backgroundColor:"white"}}>
-          <Divider style={{ color: "#d8d8d8" }}/>
-          <Searchbar/>  
+          <Divider/>
         </Content>
       </Layout>
     );
   }
-
 }

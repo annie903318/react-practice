@@ -5,8 +5,6 @@ import React, { useState } from 'react';
 import ItemsCarousel from 'react-items-carousel';
 
 export default () => {
-  
-
   const [activeItemIndex, setActiveItemIndex] = useState(0);
   const chevronWidth = 40;
   return (
