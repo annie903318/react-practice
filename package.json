@@ -1,5 +1,5 @@
 {
-  "name": "newsight",
+  "name": "react-practice",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,9 +8,11 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-items-carousel": "^2.8.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-slick": "^0.26.1",
+    "react-z-index": "^3.0.0",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",

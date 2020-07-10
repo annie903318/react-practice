@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Row,Col,Input,Select } from "antd";
 import "antd/dist/antd.css";
-import Selection from './Selection';
+import Selection from '../Selection/Selection';
+import "./Searchbar.css";
 
 const { Search } = Input;
 const { Option } = Select;
@@ -68,7 +69,6 @@ export default class Searchbar extends Component {
     ],
     rename:"name",
     retype:"0"
-    
   };
   result = value => {
     if(value!==""){
@@ -96,19 +96,17 @@ export default class Searchbar extends Component {
                   allowClear
                 />
               </Col>
-
               <Col span={3} offset={1}>
-                <Select defaultValue="0" style={{ width: 150 }} onChange={this.typeOnChange}>
+                <Select defaultValue="0" className="select" onChange={this.typeOnChange}>
                   <Option value="0">所有類別</Option>
                   <Option value="1">工藝品</Option>
                   <Option value="2">雕塑</Option>
                   <Option value="3">陶瓷</Option>
                 </Select>
-              </Col>
-             
+              </Col>           
               <Col span={2}>
                 排序
-                <Select defaultValue="0" style={{ width: 100 }}>
+                <Select defaultValue="0" className="select">
                   <Option value="0">預設</Option>
                   <Option value="1">按讚數</Option>
                   <Option value="2">發布時間</Option>
@@ -118,7 +116,7 @@ export default class Searchbar extends Component {
             </Row>
             <br/>
             <div>
-              <Row gutter={[24,24]} style={{margin:"auto"}}>
+              <Row gutter={[24,24]}>
                 {selectionlist.map((item, index, array) => {
                   if(rename!=="name" && retype!=="0"){
                     if(item.name===rename && item.type===retype){
@@ -169,7 +167,6 @@ export default class Searchbar extends Component {
               </Row>
             </div>
           </div>
-
       );
   }
 }

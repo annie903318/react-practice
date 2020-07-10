@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Layout,Divider } from "antd";
 import "antd/dist/antd.css";
-import Navbar from '../component/Navbar';
-import Searchbar from '../component/Searchbar';
+import Navbar from '../../component/Navbar/Navbar';
+import Searchbar from '../../component/Searchbar/Searchbar';
+import "./Recover.css";
 
 const { Header, Content } = Layout;
 
@@ -10,12 +11,12 @@ export default class Recover extends Component {
   render() {
     return (
       <Layout className="layout" >
-        <Header style={{backgroundColor:"white"}}>
+        <Header className="nav">
           <Navbar/>
         </Header>
         
-        <Content style={{ padding: '0 50px',backgroundColor:"white"}}>
-          <Divider style={{ color: "#d8d8d8" }}/>
+        <Content className="item">
+          <Divider className="divide"/>
           <Searchbar/>  
         </Content>
       </Layout>

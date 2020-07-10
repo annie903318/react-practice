@@ -14,7 +14,7 @@ export default class Navbar extends Component {
         return (
             <div className="Navbar">
                 <Button placement="bottomLeft"><AppstoreOutlined /></Button>
-                <Menu mode="horizontal" defaultSelectedKeys={['user']} style={{ float: "right" }}>
+                <Menu mode="horizontal" defaultSelectedKeys={['user']}>
                     <Menu.Item key="search"><SearchOutlined /></Menu.Item>
                     <Menu.Item key="mail"><MailOutlined /></Menu.Item>
                     <SubMenu icon={<BellFilled />}  onClick={this.handleClick}>
