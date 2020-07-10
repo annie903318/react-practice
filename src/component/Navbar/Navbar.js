@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { message, Button, Menu, Avatar } from "antd";
 import { AppstoreOutlined,SearchOutlined, MailOutlined, BellFilled, UserOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
+import "./Navbar.css";
 
 const {SubMenu} = Menu;
 
