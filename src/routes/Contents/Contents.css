@@ -1,0 +1,13 @@
+#project{
+    padding: 0 50px;
+    height: 100%;
+    width: 700px;
+}
+#right{
+    margin: 10px 0;
+}
+#close{
+    border: none;
+    background-color: rgba(255, 255, 255,0);
+    float: right;
+}
